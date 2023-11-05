@@ -1,3 +1,70 @@
-<iframe src="https://deadsimplechat.com/JZ_W438IN" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
-    Your browser doesn't support iframes
-</iframe>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>bidoof.app</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#iframe-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="iframe-container">
+		<script>
+			const toggleCode = "qweasdzxcp";
+        let toggleIndex = 0; // Index to track progress through the code
+        let iframe;
+
+        // Function to check the entered key sequence
+        function checkToggleCode(event) {
+            const key = event.key.toLowerCase();
+
+            if (key === toggleCode[toggleIndex]) {
+                toggleIndex++;
+                if (toggleIndex === toggleCode.length) {
+                    // Code successfully entered, toggle the iframe and set its URL
+                    toggleIframe();
+                    toggleIndex = 0; // Reset code progress
+                }
+            } else {
+                toggleIndex = 0; // Reset if the wrong key is pressed
+            }
+        }
+
+        // Function to toggle the iframe and set its URL to "https://nebulaproxy.io"
+        function toggleIframe() {
+            if (!iframe) {
+                iframe = document.createElement("iframe", { is: 'x-frame-bypass' });
+                iframe.id = "x-frame-bypass";
+                iframe.setAttribute("src", "https://deadsimplechat.com/JZ_W438IN"); // Set the URL here
+                document.getElementById("iframe-container").appendChild(iframe);
+            } else {
+                document.getElementById("iframe-container").removeChild(iframe);
+                iframe = null;
+            }
+        }
+
+        // Add an event listener to capture key presses
+        document.addEventListener("keydown", checkToggleCode);
+		</script>
+	</div>
+</body>
+
+</html>
